@@ -1,0 +1,39 @@
+<?php
+/**
+ * Copyright 2018 aheadWorks. All rights reserved.
+ * See LICENSE.txt for license details.
+ */
+?>
+
+<h1 class="page-title">
+    <span class="base" data-ui-id="page-title-wrapper">
+        <?php echo $block->getTitle();?>
+    </span>
+</h1>
+<div class="table-wrapper orders-history">
+    <?php
+    $newsCollection = $block->getCollection();
+    if($newsCollection->getSize() > 0) :
+        ?>
+        <ul>
+            <?php foreach($newsCollection as $news): ?>
+                <li>
+                    <div>
+                        <strong>
+                            <?php /* @noEscape */ echo $block->formatDate($news->getDate(), \IntlDateFormatter::SHORT) ?>
+                        </strong>
+                        <span>
+                            <?php echo $news->getTitle()?>
+                        </span>
+                    </div>
+                </li>
+            <?php endforeach; ?>
+        </ul>
+        <div style="clear:both"></div>
+        <div class="toolbar-bottom">
+            <div class="toolbar bottom">
+                <?php echo $block->getPagerHtml();?>
+            </div>
+        </div>
+    <?php endif;?>
+</div>

@@ -1,0 +1,42 @@
+<?xml version="1.0"?>
+<!--
+/**
+* Copyright 2018 aheadWorks. All rights reserved.
+* See LICENSE.txt for license details.
+*/
+-->
+
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
+    <menu>
+        <add id="Aheadworks_News::home"
+             title="News"
+             module="Aheadworks_News"
+             sortOrder="100"
+             parent="Magento_Backend::content"
+             resource="Aheadworks_News::home"/>
+
+        <add id="Aheadworks_News::add"
+             title="Add item"
+             module="Aheadworks_News"
+             sortOrder="10"
+             parent="Aheadworks_News::home"
+             action="news/news/add"
+             resource="Aheadworks_News::news"/>
+
+        <add id="Aheadworks_News::news"
+             title="News list"
+             module="Aheadworks_News"
+             sortOrder="20"
+             parent="Aheadworks_News::home"
+             action="news/news/index"
+             resource="Aheadworks_News::news"/>
+
+        <add id="Aheadworks_News::settings"
+             title="Settings"
+             module="Aheadworks_News"
+             sortOrder="30"
+             parent="Aheadworks_News::home"
+             action="adminhtml/system_config/edit/section/aw_news"
+             resource="Aheadworks_News::settings"/>
+    </menu>
+</config>
